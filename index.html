@@ -67,7 +67,7 @@
         <span class="gate-line"></span>
       </span>
       <span class="gate-label">Nikkah Invitation</span>
-      <span class="gate-names">Fathima Sana &amp; Muhammed Jubair</span>
+      <span class="gate-names">Sana &amp; Jubair</span>
       <span class="gate-date">06 · 11 · 2026</span>
       <span class="gate-tap">
         <span class="gate-tap-ring"></span>
@@ -108,6 +108,7 @@
     <a href="#couple"    class="side-nav__dot" data-label="Couple"></a>
     <a href="#events"    class="side-nav__dot" data-label="Events"></a>
     <a href="#love-story" class="side-nav__dot" data-label="Our Story"></a>
+    <a href="#rsvp"      class="side-nav__dot" data-label="RSVP"></a>
   </nav>
 
   <!-- ===================== HERO / REVEAL ===================== -->
@@ -318,7 +319,7 @@
             Mr. Abdul Majeed<br />&amp;<br />
             Mrs. Sajitha
             <strong>Residence</strong>
-            Kunnummal<br />
+            Kunnummal (H)<br />
             Parappanpoyil, Thamarassery
           </div>
         </div>
@@ -332,8 +333,8 @@
             Mr. Abdul Hameed<br />&amp;<br />
             Mrs. Rahmath
             <strong>Residence</strong>
-            Pilavullery (House)<br />
-            Valiyaparamba PO, Koduvally
+            Pilavullery (H)<br />
+            Valiyaparamba , Koduvally
           </div>
         </div>
       </div>
@@ -472,12 +473,63 @@
     </div>
   </section>
 
+  <!-- ===== RSVP ===== -->
+  <section id="rsvp">
+    <div class="rsvp-bg" aria-hidden="true"></div>
+    <div class="rsvp-content">
+      <span class="section-eyebrow" data-aos="fade-up">You're Invited</span>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">RSVP</h2>
+
+      <div class="ornament-divider" data-aos="fade-in" data-aos-delay="200">
+        <span class="ornament-line"></span>
+        <span class="ornament-flower">✿</span>
+        <span class="ornament-line right"></span>
+      </div>
+
+      <p data-aos="fade-up" data-aos-delay="150"
+        style="font-family:var(--font-serif); font-size:clamp(15px,2.2vw,18px); color:var(--text-medium); line-height:1.8; max-width:500px; margin:0 auto 40px;">
+        We would be honoured by your presence. Please let us know if you'll be joining us on this blessed day.
+      </p>
+
+      <form id="rsvp-form" class="rsvp-form" data-aos="fade-up" data-aos-delay="200" novalidate>
+        <div class="rsvp-field">
+          <label for="rsvp-name">Your Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="rsvp-name" name="name" placeholder="Enter your full name" required autocomplete="name" />
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvp-guests">Number of Guests</label>
+          <select id="rsvp-guests" name="guests">
+            <option value="1">Just me (1)</option>
+            <option value="2">2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+            <option value="5+">5 or more</option>
+          </select>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvp-message">Leave a Dua / Message <span style="opacity:.6;">(optional)</span></label>
+          <textarea id="rsvp-message" name="message" rows="3"
+            placeholder="May Allah bless this union…"></textarea>
+        </div>
+
+        <button type="submit" class="rsvp-btn" id="rsvp-submit">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          <span>Confirm Attendance</span>
+        </button>
+
+        <p class="rsvp-status" id="rsvp-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-pattern" aria-hidden="true"></div>
     <div class="footer-content">
       <p class="footer-names" data-aos="fade-up">
-        Fathima Sana &amp; Muhammed Jubair
+        Fathima Sana<br />&amp;<br />Muhammed Jubair
       </p>
 
       <p class="footer-date" data-aos="fade-up" data-aos-delay="200">
