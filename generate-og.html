@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate WhatsApp OG Image (1200x630)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Amiri:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: #060f26;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #a9c0ea;
+      margin-bottom: 24px;
+    }
+    canvas {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, #f5d77f, #d4af37);
+      color: #081a45;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+    }
+    .guide {
+      max-width: 600px;
+      margin: 30px auto 0;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 8px;
+      text-align: left;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WhatsApp Preview Generator (1200 × 630)</h1>
+  <p>Click the button below to download the official 1200x630 landscape <strong>og.jpg</strong> for WhatsApp!</p>
+
+  <canvas id="ogCanvas" width="1200" height="630"></canvas>
+  <br>
+  <button class="btn" onclick="downloadOG()">📥 Download og.jpg</button>
+
+  <div class="guide">
+    <strong style="color:#f5d77f;">Next step after downloading:</strong>
+    <ol style="margin: 8px 0 0; padding-left: 20px; color:#dbe6fa;">
+      <li>Move the downloaded <strong>og.jpg</strong> into your project folder (replace the existing <code>og.jpg</code>).</li>
+      <li>Redeploy your project to Vercel (or push to GitHub).</li>
+      <li>When sharing the link on WhatsApp, share <code>https://sana-jubair.vercel.app/</code> and WhatsApp will show this gorgeous preview!</li>
+    </ol>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.fonts.ready.then(() => {
+        drawCanvas();
+      });
+    });
+
+    function drawCanvas() {
+      const canvas = document.getElementById('ogCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // 1. Dark Royal Navy gradient background
+      const bgGrad = ctx.createLinearGradient(0, 0, 1200, 630);
+      bgGrad.addColorStop(0, '#05122f');
+      bgGrad.addColorStop(0.5, '#0a1d4d');
+      bgGrad.addColorStop(1, '#05122f');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1200, 630);
+
+      // Ambient radial glow in center
+      const radial = ctx.createRadialGradient(600, 315, 50, 600, 315, 500);
+      radial.addColorStop(0, 'rgba(47, 90, 168, 0.45)');
+      radial.addColorStop(0.6, 'rgba(18, 48, 110, 0.2)');
+      radial.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = radial;
+      ctx.fillRect(0, 0, 1200, 630);
+
+      // 2. Ornate Gold Borders
+      ctx.strokeStyle = '#d4af37';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(36, 36, 1128, 558);
+
+      ctx.strokeStyle = 'rgba(212, 175, 55, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(46, 46, 1108, 538);
+
+      // Corner Ornaments
+      drawCorner(ctx, 46, 46, 1, 1);
+      drawCorner(ctx, 1154, 46, -1, 1);
+      drawCorner(ctx, 46, 584, 1, -1);
+      drawCorner(ctx, 1154, 584, -1, -1);
+
+      // 3. Arabic Bismillah Calligraphy
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#f5d77f';
+      ctx.font = 'bold 36px "Amiri", serif';
+      ctx.fillText('بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ', 600, 130);
+
+      // Divider lines
+      drawDivider(ctx, 600, 165, 180);
+
+      // 4. "NIKKAH INVITATION"
+      ctx.fillStyle = '#c7d6f3';
+      ctx.font = '600 20px "Cinzel", serif';
+      ctx.letterSpacing = '6px';
+      ctx.fillText('NIKKAH INVITATION', 600, 215);
+
+      // 5. Couple Names
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 64px "Playfair Display", serif';
+      ctx.fillText('Fathima Sana', 600, 300);
+
+      ctx.fillStyle = '#f5d77f';
+      ctx.font = 'italic 44px "Playfair Display", serif';
+      ctx.fillText('&', 600, 355);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 64px "Playfair Display", serif';
+      ctx.fillText('Muhammed Jubair', 600, 425);
+
+      // Divider lines
+      drawDivider(ctx, 600, 465, 180);
+
+      // 6. Date
+      ctx.fillStyle = '#f5d77f';
+      ctx.font = 'bold 24px "Cinzel", serif';
+      ctx.fillText('06 · 11 · 2026', 600, 505);
+
+      // 7. Venue
+      ctx.fillStyle = '#a9c0ea';
+      ctx.font = '18px "Lato", sans-serif';
+      ctx.fillText('Moyinkutty Convention Centre  ·  Andona, Thamarassery', 600, 545);
+    }
+
+    function drawCorner(ctx, x, y, dx, dy) {
+      ctx.strokeStyle = '#f5d77f';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x + dx * 20, y);
+      ctx.lineTo(x, y);
+      ctx.lineTo(x, y + dy * 20);
+      ctx.stroke();
+
+      ctx.fillStyle = '#f5d77f';
+      ctx.beginPath();
+      ctx.arc(x + dx * 10, y + dy * 10, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function drawDivider(ctx, cx, cy, width) {
+      ctx.strokeStyle = 'rgba(212, 175, 55, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - width / 2, cy);
+      ctx.lineTo(cx - 20, cy);
+      ctx.moveTo(cx + 20, cy);
+      ctx.lineTo(cx + width / 2, cy);
+      ctx.stroke();
+
+      ctx.fillStyle = '#f5d77f';
+      ctx.beginPath();
+      ctx.arc(cx, cy, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function downloadOG() {
+      const canvas = document.getElementById('ogCanvas');
+      const link = document.createElement('a');
+      link.download = 'og.jpg';
+      link.href = canvas.toDataURL('image/jpeg', 0.92);
+      link.click();
+    }
+  </script>
+</body>
+</html>
