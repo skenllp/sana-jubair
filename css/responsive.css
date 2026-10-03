@@ -1,0 +1,141 @@
+/* ==========================================================================
+   RESPONSIVE.CSS — all breakpoints
+   ========================================================================== */
+
+/* ===== TABLET: 900px ===== */
+@media (max-width: 900px) {
+  .couple-content .parents-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .couple-photo-frame--single {
+    max-width: 300px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .parents-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+
+  .timeline::before {
+    left: 24px;
+  }
+
+  .timeline-item {
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-text {
+    text-align: left;
+    order: 0;
+  }
+
+  .timeline-item:nth-child(even) .timeline-text {
+    grid-column: auto;
+  }
+
+  .timeline-item:nth-child(even) .timeline-empty {
+    display: none;
+  }
+
+  .timeline {
+    padding: 0 0 0 12px;
+  }
+
+  /* Arch: slightly narrower stage on tablet */
+  .hero__stage { min-height: 74vh; }
+  .arch-frame  { width: min(72vw, 320px); height: min(72vw, 400px); }
+}
+
+/* ===== MOBILE: 640px ===== */
+@media (max-width: 640px) {
+  /* Arch responsive */
+  .hero__stage  { min-height: 70vh; padding: 0 16px; }
+  .arch-frame   { width: 82vw; height: 88vw; max-height: 60vh; }
+  .garland      { width: 88vw; top: -14px; }
+
+  .hero__names  { flex-direction: column; align-items: center; gap: 0; }
+  .hero__name   { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+  .hero__amp    { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .hero__date   { font-size: 0.85rem; letter-spacing: 0.2em; }
+  .hero__venue-line { font-size: 0.72rem; }
+
+  /* Music toggle: shift left slightly so it doesn't overlap scroll cue */
+  .music-toggle { bottom: 20px; right: 16px; width: 46px; height: 46px; }
+}
+
+/* ===== MOBILE: 480px ===== */
+@media (max-width: 480px) {
+  .nav { padding: 16px 20px; }
+
+  #hero { min-height: 100svh; }
+
+  #opening,
+  #couple,
+  #events,
+  #countdown,
+  #quote-section,
+
+  #love-story,
+  #rsvp,
+  #parents {
+    padding: 80px 16px;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .countdown-box { padding: 24px 12px; }
+
+  .countdown-number { font-size: clamp(36px, 10vw, 56px); }
+
+
+  .event-card  { padding: 36px 20px; }
+
+  .couple-photo-frame--single { max-width: 260px; }
+
+  footer { padding: 60px 16px 32px; }
+
+  .maps-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ornament-line { width: 50px; }
+
+  /* Arch on small mobile */
+  .arch-frame   { width: 88vw; height: 92vw; max-height: 56vh; }
+  .arch-cta__label { font-size: 0.6rem; letter-spacing: 0.2em; }
+}
+
+/* ===== EXTRA SMALL: 360px ===== */
+@media (max-width: 360px) {
+  .arch-frame { width: 92vw; height: 96vw; max-height: 54vh; }
+
+  .hero__name {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .countdown-grid { gap: 10px; }
+}
