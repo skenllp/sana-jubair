@@ -1545,24 +1545,38 @@ footer .maps-btn:hover { background: #ffffff; color: var(--maroon-800); border-c
 /* ===== RSVP SECTION ===== */
 #rsvp {
   position: relative;
-  padding: 120px 24px;
+  padding: 100px 24px;
   text-align: center;
-  background: var(--bg-deep);
+  background: linear-gradient(180deg, var(--maroon-950) 0%, #0d2254 100%);
+  color: #ffffff;
   overflow: hidden;
 }
 
 .rsvp-bg {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,175,55,.08) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(212,175,55,.05) 0%, transparent 70%);
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(111, 147, 214, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(111, 147, 214, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .rsvp-content {
   position: relative;
-  max-width: 560px;
+  max-width: 540px;
   margin: 0 auto;
+}
+
+.rsvp-content .section-eyebrow {
+  color: #a9c0ea;
+}
+
+.rsvp-content .section-title {
+  color: #ffffff;
+}
+
+.rsvp-content p {
+  color: #dbe6fa;
 }
 
 .rsvp-form {
@@ -1580,77 +1594,118 @@ footer .maps-btn:hover { background: #ffffff; color: var(--maroon-800); border-c
 }
 
 .rsvp-field label {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: #c7d6f3;
 }
 
 .rsvp-field input,
 .rsvp-field select,
 .rsvp-field textarea {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(212,175,55,0.25);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(219, 230, 250, 0.3);
   border-radius: 8px;
   padding: 14px 18px;
-  color: #fff;
-  font-family: var(--font-serif);
+  color: #ffffff;
+  font-family: var(--font-body);
   font-size: 1rem;
   outline: none;
-  transition: border-color .25s, box-shadow .25s;
+  transition: border-color .25s, box-shadow .25s, background .25s;
   width: 100%;
   box-sizing: border-box;
 }
 
-.rsvp-field select option { background: #0d1b3e; color: #fff; }
+.rsvp-field select option {
+  background: #081a45;
+  color: #ffffff;
+}
 
 .rsvp-field input:focus,
 .rsvp-field select:focus,
 .rsvp-field textarea:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(212,175,55,.15);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
 .rsvp-field input::placeholder,
-.rsvp-field textarea::placeholder { color: rgba(255,255,255,.3); }
+.rsvp-field textarea::placeholder {
+  color: rgba(219, 230, 250, 0.5);
+}
 
-.rsvp-field textarea { resize: vertical; min-height: 90px; }
+.rsvp-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
 
 .rsvp-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 8px;
-  padding: 16px 40px;
-  background: linear-gradient(135deg, var(--gold), #b8951f);
-  color: #0a1628;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  margin-top: 10px;
+  padding: 16px 42px;
+  background: linear-gradient(135deg, #ffffff, #dbe6fa);
+  color: var(--maroon-950);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
   transition: transform .2s, box-shadow .2s, opacity .2s;
   align-self: center;
 }
 
-.rsvp-btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,175,55,.35); }
-.rsvp-btn:active { transform: translateY(0); }
-.rsvp-btn:disabled { opacity: .65; cursor: not-allowed; transform: none; box-shadow: none; }
-
-.rsvp-status {
-  text-align: center;
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  min-height: 24px;
-  transition: color .3s;
-  margin-top: 4px;
+.rsvp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
-.rsvp-status.success { color: #7ecb9e; }
-.rsvp-status.error   { color: #e57373; }
+.rsvp-btn:active {
+  transform: translateY(0);
+}
+
+.rsvp-btn:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Response alert badge — maximum readability */
+.rsvp-status {
+  display: none;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 16px;
+  padding: 14px 20px;
+  border-radius: 8px;
+}
+
+.rsvp-status:not(:empty) {
+  display: block;
+}
+
+.rsvp-status.success {
+  background: #064e3b;
+  color: #34d399;
+  border: 1px solid #059669;
+  box-shadow: 0 4px 18px rgba(6, 78, 59, 0.4);
+}
+
+.rsvp-status.error {
+  background: #4c1d1d;
+  color: #fca5a5;
+  border: 1px solid #dc2626;
+  box-shadow: 0 4px 18px rgba(76, 29, 29, 0.4);
+}
 
